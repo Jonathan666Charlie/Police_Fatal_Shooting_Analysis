@@ -3,7 +3,16 @@
 
 ## Overview
 
-This repo provides students with a foundation for their own projects associated with *Telling Stories with Data*. You do not need every aspect for every paper and you should delete aspects that you do not need.
+Police killings have become one of the top political and social issues in the United States. The present study
+investigates the socioeconomic, demographic, and political factors that affect police killings across various
+counties in the United States. Using a database of cases involving police killings, socioeconomic measures,
+and Poisson regression analyses, we evaluate the influence of income, poverty, unemployment, education, state
+political affiliation, armed status, and circumstances of death. The results establish significant disparities
+in police-related deaths with specific regard to racial and economic factors, while political affiliation of the
+states and whether the victim was armed emerged as two of the most powerful predictors. These results
+further speak to the pressing need for structural reforms that alleviate inequalities and work to reduce police
+killings going forward.
+
 
 
 ## File Structure
