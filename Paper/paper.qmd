@@ -1,4 +1,5 @@
-  ---
+---
+format: pdf
 title: "Understanding Racial Disparities and Systemic Inequities in Fatal Police Shootings Across the United States"
 subtitle: "Black and Hispanic Individuals Face Higher Odds of Being Shot and Killed by Police, Highlighting Structural Inequities in Policing Practices"
 author: Jingchuan Xu
@@ -6,7 +7,6 @@ thanks: "Code and data are available at: [https://github.com/Jonathan666Charlie/
 date: today
 date-format: long
 abstract: "This study examines fatal police shootings in the U.S. by linking incident data from The Guardian with socioeconomic data from the American Community Survey. A generalized linear model reveals significant racial disparities, with Black and Hispanic individuals facing higher odds of being shot and killed by police compared to White individuals, even after adjusting for community factors. These findings emphasize the role of systemic inequities in policing and the need for reforms to address racial disparities in the use of lethal force."
-format: pdf
 number-sections: true
 bibliography: references.bib
 ---
@@ -72,12 +72,12 @@ Another key predictor variable is armed status, which specifies whether the dece
 @fig-armed illustrates the proportion of individuals shot by police ("Yes" or "No") across armed and unarmed statuses. The y-axis represents the proportion, scaled from 0 to 1, while the x-axis shows the armed status categories ("No" and "Yes"). A larger proportion of "Yes" responses (yellow) is observed for both armed and unarmed individuals, indicating that being shot is the dominant outcome regardless of armed status. However, the similarity in proportions suggests minimal variation in shooting likelihood based on whether the individual was armed. This visualization highlights the relationship between armed status and police shootings, emphasizing the need to further investigate other influencing factors.
 
 ```{r}
-#| label: fig-armed
-#| fig-cap: "The figure illustrates the proportion of individuals shot by police ("Yes" or "No") across armed and unarmed statuses. Each bar represents the armed status category, with stacked segments indicating the proportion of individuals shot ("Yes" in yellow) or not shot ("No" in teal). The proportions are scaled to sum to 1 for each category, highlighting the relationship between armed status and police shootings."
 #| echo: false
 #| warning: false
 #| message: false
-#|
+#| label: fig-armed
+#| fig-cap: "The figure illustrates the proportion of individuals shot by police ('Yes' or 'No') across armed and unarmed statuses. Each bar represents the armed status category, with stacked segments indicating the proportion of individuals shot ('Yes' in yellow) or not shot ('No' in teal). The proportions are scaled to sum to 1 for each category, highlighting the relationship between armed status and police shootings."
+
 analysis_data <- read_parquet(here("data", "02-analysis_data", "analysis_data.parquet"))
 
 ggplot(analysis_data, aes(x = armed, fill = shot)) +
@@ -90,12 +90,12 @@ ggplot(analysis_data, aes(x = armed, fill = shot)) +
 @fig-race  illustrates the proportion of individuals shot by police ("Yes" or "No") across racial categories, with the y-axis representing the proportion scaled from 0 to 1 and the x-axis showing the racial groups ("Black," "Hispanic," "Other," and "White"). A higher proportion of "Yes" responses (yellow) is observed across all racial groups, with notable variation in the distribution of "No" responses (teal). The disparity in proportions across racial groups suggests potential differences in the likelihood of being shot based on race, warranting further investigation into systemic and situational factors contributing to these outcomes.
 
 ```{r}
-#| label: fig-race
-#| fig-cap: "The figure illustrates the proportion of individuals shot by police ("Yes" in yellow and "No" in teal) across racial groups. Each bar represents a racial category, with stacked segments showing the proportion of outcomes for each group. The proportions are scaled to sum to 1 within each racial category, highlighting differences in the likelihood of being shot across racial groups."
 #| echo: false
 #| warning: false
 #| message: false
-
+#| label: fig-race
+#| fig-cap: "The figure illustrates the proportion of individuals shot by police ('Yes' in yellow and 'No' in teal) across racial groups. Each bar represents a racial category, with stacked segments showing the proportion of outcomes for each group. The proportions are scaled to sum to 1 within each racial category, highlighting differences in the likelihood of being shot across racial groups."
+#
 ggplot(analysis_data, aes(x = race, fill = shot)) +
   geom_bar(position = "fill", alpha = 1) +
   labs(x = "Race", y = "Proportion", fill = "Shot by police") +
@@ -161,11 +161,11 @@ logit_model <-
 
 ```{r}
 #| echo: false
-#| eval: true
-#| label: tbl-modelresults
-#| tbl-cap: "Summary of logistic regression results predicting the likelihood of an individual being shot. The table displays coefficients, standard errors, and model diagnostics (AIC, BIC, Log-Likelihood, RMSE, and \(F\)-statistic). While the model provides insights into racial and situational factors, the diagnostics suggest modest predictive power, highlighting the need for additional predictors to improve fit."
 #| warning: false
 #| message: false
+#| eval: true
+#| label: tbl-modelresults
+#| tbl-cap: "Summary of logistic regression results predicting the likelihood of an individual being shot. The table displays coefficients, standard errors, and model diagnostics (AIC, BIC, Log-Likelihood, RMSE, and F-statistic). While the model provides insights into racial and situational factors, the diagnostics suggest modest predictive power, highlighting the need for additional predictors to improve fit."
 
 modelsummary::modelsummary(
   list(
