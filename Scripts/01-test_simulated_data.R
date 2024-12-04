@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Tests the simulated data
 # Author: Jingchuan Xu
-# Date: 2 December 2024 
+# Date: 2 December 2024
 # Contact: jingchuan.xu@mail.toronto.ca
 # License: MIT
 # Pre-requisites: R packages`tidyverse` and `testthat` are loaded
@@ -17,10 +17,10 @@ simulated_data <- read_csv("data/00-simulated_data/simulated_data.csv")
 test_that("Dataset has correct structure and variable types", {
   # Check if the dataset is a data frame
   expect_s3_class(simulated_data, "data.frame")
-  
+
   # Check if all columns exist
   expect_true(all(c("age", "gender", "race", "armed", "shot") %in% colnames(simulated_data)))
-  
+
   # Check column types
   expect_type(simulated_data$age, "double")
   expect_type(simulated_data$gender, "character")

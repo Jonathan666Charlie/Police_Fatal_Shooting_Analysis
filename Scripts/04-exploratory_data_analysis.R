@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Visually explores the analysis data
 # Author: Jingchuan Xu
-# Date: 2 December 2024 
+# Date: 2 December 2024
 # Contact: jingchuan.xu@mail.toronto.ca
 # License: MIT
 # Pre-requisites: R packages`tidyverse`, `gridExtra` and `arrow` are loaded
@@ -67,7 +67,8 @@ plot_race_shot <- ggplot(analysis_data, aes(x = race, fill = shot)) +
 
 # Display all plots
 grid.arrange(plot_age, plot_gender, plot_race,
-             plot_armed_shot, plot_race_armed,
-             ncol = 2)
+  plot_armed_shot, plot_race_armed,
+  ncol = 2
+)
 
-grid.arrange(plot_age_shot, plot_gender_shot, plot_race_shot, ncol=1)
+grid.arrange(plot_age_shot, plot_gender_shot, plot_race_shot, ncol = 1)

@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Build and compare models on the analysis data
 # Author: Jingchuan Xu
-# Date: 2 December 2024 
+# Date: 2 December 2024
 # Contact: jingchuan.xu@mail.toronto.ca
 # License: MIT
 # Pre-requisites: R packages`tidyverse` and `arrow` are loaded
@@ -20,7 +20,7 @@ analysis_data <- analysis_data %>%
   mutate(shot = as.factor(shot))
 
 # Manual train-test split (70% train, 30% test)
-set.seed(123)  # For reproducibility
+set.seed(123) # For reproducibility
 n <- nrow(analysis_data)
 train_indices <- sample(1:n, size = floor(0.7 * n))
 train_data <- analysis_data[train_indices, ]
@@ -89,4 +89,3 @@ saveRDS(
   reduced_model,
   file = "model/reduced_model.rds"
 )
-

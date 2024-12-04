@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Tests the simulated data
 # Author: Jingchuan Xu
-# Date: 2 December 2024 
+# Date: 2 December 2024
 # Contact: jingchuan.xu@mail.toronto.ca
 # License: MIT
 # Pre-requisites: R packages`tidyverse`, `arrow`, and `testthat` are loaded
@@ -18,10 +18,10 @@ analysis_data <- read_parquet("data/02-analysis_data/analysis_data.parquet")
 test_that("Dataset has correct structure and variable types", {
   # Check if the dataset is a data frame
   expect_s3_class(analysis_data, "data.frame")
-  
+
   # Check if all columns exist
   expect_true(all(c("age", "gender", "race", "armed", "shot") %in% colnames(analysis_data)))
-  
+
   # Check column types
   expect_type(analysis_data$age, "double")
   expect_type(analysis_data$gender, "character")
