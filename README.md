@@ -1,9 +1,9 @@
 
-# Analysis of Police Killings 
+# Analysis of Police Fatal Shootings 
 
 ## Overview
 
-Police killings are a critical political and social issue in the United States. This repository examines socioeconomic, demographic, and political factors influencing police killings, highlighting significant racial and economic disparities and the impact of state political affiliation and victim armed status.
+Police fatal shootings are a critical political and social issue in the United States. This repository examines socioeconomic, demographic, and personal factors influencing police fatal shootings, highlighting significant racial and economic disparities and the impact of state political affiliation and victim armed status.
 
 ## File Structure
 
